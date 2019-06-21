@@ -1,5 +1,7 @@
 // Find the maximum
-
+function maxOfTwoNumbers (number1,number2){
+ return number1 > number2 ? number1:number2
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +13,40 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+
+  if(words.length === 0){
+    return undefined
+  }else {return words.reduce(
+    (a, b) => a.length >= b.length ? a: b);}
+  
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (numbers){
+  if(numbers.length === 0){
+return 0
+  }else {
+  return numbers.reduce((a,b) => a+b)
+}}
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length === 0){
+    return undefined
+      }else {
+      return numbersAvg.reduce((a,b) => a+b)/numbersAvg.length}
+
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +61,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+
+  if(wordsArr.length === 0){
+    return undefined
+      }else {
+      return wordsArr.join("").length/wordsArr.length}
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +85,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+
+  if(wordsUnique.length === 0){
+    return undefined
+  }else{
+
+    //1ra forma)  [...new Set(array)] --> te da un array con valores no repetidos
+    //2da forma)   con filter --> wordsUnique.filter((v,i) => wordsUnique.indexOf(v) === i)
+    // en el filter comparamos si el primer indice que encontramos de ese valor equivale al index donde estamos.
+    // así quitamos los repetidos y solo filtra por el primer resultado que cumpla esa situacion.
+//x(names);
+let unicos = [...new Set(wordsUnique)]
+return unicos
+}
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +111,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, word){
+if(wordsFind.length === 0){
+  return false
+}else {
+  //includes busca en el array si está la palabra y si está da true, si no, false.
+return wordsFind.includes(word) 
+}
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +135,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, word){
+if(wordsCount.length === 0){return false}
+else {
+let contador = 0;
+
+for(var i=0; i<wordsCount.length;i++){
+if(wordsCount[i]===word){
+  contador++
+}
+}
+return contador
+}
+
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +174,18 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = matrix =>{
+
+  var greatest =0;
+  // horizontal
+  for(var i= 0; i< matrix.length; i++) {
+    for (var j=0; j< matrix[i].length-4; j++){
+        var product = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+    }
+  }
+return greatest
+
+}
+  
+
